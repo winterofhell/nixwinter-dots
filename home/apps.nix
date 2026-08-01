@@ -1,0 +1,173 @@
+{
+  pkgs,
+  inputs,
+  ...
+}:
+
+let
+  system = pkgs.stdenv.hostPlatform.system;
+
+  zen = inputs.zen-browser.packages.${system}.default.override {
+    extraPolicies = {
+      DisableAppUpdate = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DontCheckDefaultBrowser = true;
+      HardwareAcceleration = true;
+      NoDefaultBookmarks = true;
+      UserMessaging = {
+        ExtensionRecommendations = false;
+        FeatureRecommendations = false;
+        FirefoxLabs = false;
+        MoreFromMozilla = false;
+        SkipOnboarding = true;
+        UrlbarInterventions = false;
+      };
+      Preferences = {
+        "browser.tabs.warnOnClose" = {
+          Value = true;
+          Status = "default";
+        };
+        "font.default.x-western" = {
+          Value = "sans-serif";
+          Status = "default";
+        };
+        "font.name.monospace.x-western" = {
+          Value = "JetBrains Mono";
+          Status = "default";
+        };
+        "font.name.sans-serif.x-western" = {
+          Value = "JetBrains Mono";
+          Status = "default";
+        };
+        "font.name.serif.x-western" = {
+          Value = "JetBrains Mono";
+          Status = "default";
+        };
+        "font.size.monospace.x-western" = {
+          Value = 14;
+          Status = "default";
+          Type = "number";
+        };
+        "font.size.variable.x-western" = {
+          Value = 16;
+          Status = "default";
+          Type = "number";
+        };
+        "widget.use-xdg-desktop-portal.file-picker" = {
+          Value = 1;
+          Status = "default";
+          Type = "number";
+        };
+      };
+    };
+  };
+in
+{
+  home.packages = with pkgs; [
+    zen
+    fd
+    jq
+    lsof
+    nh
+    nix-output-monitor
+    nvd
+    ripgrep
+  ];
+
+  xdg.desktopEntries.zen-browser = {
+    name = "Zen Browser";
+    genericName = "Web Browser";
+    exec = "zen %U";
+    icon = "zen";
+    terminal = false;
+    noDisplay = true;
+    categories = [
+      "Network"
+      "WebBrowser"
+    ];
+    mimeType = [
+      "application/json"
+      "application/xhtml+xml"
+      "text/html"
+      "text/xml"
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+    ];
+  };
+
+  xdg.mimeApps.defaultApplications = {
+    "application/json" = [ "zen-browser.desktop" ];
+    "application/pdf" = [ "org.kde.okular.desktop" ];
+    "application/vnd.rar" = [ "org.kde.ark.desktop" ];
+    "application/x-7z-compressed" = [ "org.kde.ark.desktop" ];
+    "application/x-bzip2" = [ "org.kde.ark.desktop" ];
+    "application/x-compressed-tar" = [ "org.kde.ark.desktop" ];
+    "application/x-gzip" = [ "org.kde.ark.desktop" ];
+    "application/x-rar" = [ "org.kde.ark.desktop" ];
+    "application/x-tar" = [ "org.kde.ark.desktop" ];
+    "application/x-xz" = [ "org.kde.ark.desktop" ];
+    "application/zip" = [ "org.kde.ark.desktop" ];
+    "application/xhtml+xml" = [ "zen-browser.desktop" ];
+    "text/html" = [ "zen-browser.desktop" ];
+    "x-scheme-handler/http" = [ "zen-browser.desktop" ];
+    "x-scheme-handler/https" = [ "zen-browser.desktop" ];
+  };
+
+  programs = {
+    btop.enable = true;
+
+    gh = {
+      enable = true;
+      settings = {
+        git_protocol = "ssh";
+        prompt = "enabled";
+      };
+    };
+
+    git = {
+      enable = true;
+      settings = {
+        init.defaultBranch = "main";
+        fetch.prune = true;
+        pull.ff = "only";
+        rerere.enabled = true;
+      };
+    };
+
+    vscode = {
+      enable = true;
+      package = pkgs.vscode;
+      profiles.default.userSettings = {
+        "breadcrumbs.enabled" = true;
+        "editor.cursorBlinking" = "smooth";
+        "editor.cursorSmoothCaretAnimation" = "on";
+        "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace";
+        "editor.fontLigatures" = true;
+        "editor.fontSize" = 14;
+        "editor.guides.bracketPairs" = true;
+        "editor.minimap.enabled" = false;
+        "editor.renderWhitespace" = "selection";
+        "editor.smoothScrolling" = true;
+        "extensions.autoCheckUpdates" = false;
+        "extensions.autoUpdate" = false;
+        "files.autoSave" = "afterDelay";
+        "files.autoSaveDelay" = 1000;
+        "security.workspace.trust.untrustedFiles" = "open";
+        "telemetry.telemetryLevel" = "off";
+        "terminal.integrated.cursorBlinking" = true;
+        "terminal.integrated.defaultProfile.linux" = "fish";
+        "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
+        "terminal.integrated.fontSize" = 13;
+        "update.mode" = "none";
+        "window.commandCenter" = true;
+        "window.menuBarVisibility" = "compact";
+        "window.titleBarStyle" = "custom";
+        "workbench.list.smoothScrolling" = true;
+        "workbench.startupEditor" = "none";
+        "workbench.tree.indent" = 14;
+      };
+    };
+  };
+}
