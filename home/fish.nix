@@ -40,6 +40,7 @@
         dots = "cd ~/nixwinter-dots";
         failed = "systemctl --failed";
         fm = "dolphin .";
+        ff = "fastfetch";
         g = "git";
         ga = "git add";
         gaa = "git add --all";

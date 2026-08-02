@@ -140,35 +140,6 @@ in
     vscode = {
       enable = true;
       package = pkgs.vscode;
-      profiles.default.userSettings = {
-        "breadcrumbs.enabled" = true;
-        "editor.cursorBlinking" = "smooth";
-        "editor.cursorSmoothCaretAnimation" = "on";
-        "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace";
-        "editor.fontLigatures" = true;
-        "editor.fontSize" = 14;
-        "editor.guides.bracketPairs" = true;
-        "editor.minimap.enabled" = false;
-        "editor.renderWhitespace" = "selection";
-        "editor.smoothScrolling" = true;
-        "extensions.autoCheckUpdates" = false;
-        "extensions.autoUpdate" = false;
-        "files.autoSave" = "afterDelay";
-        "files.autoSaveDelay" = 1000;
-        "security.workspace.trust.untrustedFiles" = "open";
-        "telemetry.telemetryLevel" = "off";
-        "terminal.integrated.cursorBlinking" = true;
-        "terminal.integrated.defaultProfile.linux" = "fish";
-        "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
-        "terminal.integrated.fontSize" = 13;
-        "update.mode" = "none";
-        "window.commandCenter" = true;
-        "window.menuBarVisibility" = "compact";
-        "window.titleBarStyle" = "custom";
-        "workbench.list.smoothScrolling" = true;
-        "workbench.startupEditor" = "none";
-        "workbench.tree.indent" = 14;
-      };
     };
   };
 }

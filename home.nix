@@ -12,6 +12,7 @@ in
   imports = [
     ./home/apps.nix
     ./home/fish.nix
+    ./home/fastfetch.nix
     ./home/kitty.nix
     ./home/plasma.nix
   ];
