@@ -213,10 +213,12 @@
     starship = {
       enable = true;
       enableFishIntegration = true;
+      enableTransience = true;
+
       settings = {
         add_newline = false;
-        format = "$directory$git_branch$git_status$fill$cmd_duration$line_break$character";
-        right_format = "$status";
+        command_timeout = 1000;
+        format = "[](mauve)$os[](bg:peach fg:mauve)$directory[](fg:peach bg:yellow)$git_branch$git_status[](fg:yellow bg:sapphire)$cmd_duration[](fg:sapphire bg:lavender)$time[ ](fg:lavender)$line_break$character";
 
         character = {
           success_symbol = "[❯](bold green)";
@@ -224,53 +226,47 @@
           vimcmd_symbol = "[❮](bold lavender)";
         };
 
-        cmd_duration = {
-          min_time = 2000;
-          format = "[$duration]($style)";
-          style = "yellow";
+        os = {
+          disabled = false;
+          style = "bg:mauve fg:crust";
+          format = "[ $symbol ]($style)";
+          symbols.NixOS = "";
         };
 
         directory = {
-          style = "bold lavender";
-          truncation_length = 4;
-          truncate_to_repo = false;
+          style = "bg:peach fg:crust";
+          format = "[ $path ]($style)";
+          truncation_length = 3;
+          truncation_symbol = "…/";
           read_only = " ";
         };
 
-        fill.symbol = " ";
-
         git_branch = {
-          symbol = " ";
-          style = "bold mauve";
-          format = "[$symbol$branch]($style) ";
+          symbol = "";
+          style = "bg:yellow fg:crust";
+          format = "[ $symbol $branch ]($style)";
         };
 
         git_status = {
-          style = "peach";
-          format = "[$all_status$ahead_behind]($style) ";
+          style = "bg:yellow fg:crust";
+          format = "[$all_status$ahead_behind ]($style)";
         };
 
-        hostname = {
-          ssh_only = true;
-          format = "[$hostname]($style) ";
-          style = "bold blue";
+        cmd_duration = {
+          min_time = 1500;
+          style = "bg:sapphire fg:crust";
+          format = "[ 󰔛 $duration ]($style)";
         };
 
-        nix_shell = {
-          symbol = " ";
-          format = "[$symbol$name]($style) ";
-          style = "bold sapphire";
-        };
-
-        package.disabled = true;
-
-        status = {
+        time = {
           disabled = false;
-          format = "[$status]($style)";
-          style = "bold red";
+          time_format = "%H:%M";
+          style = "bg:lavender fg:crust";
+          format = "[  $time ]($style)";
         };
 
-        username.show_always = false;
+        status.disabled = true;
+        package.disabled = true;
       };
     };
 

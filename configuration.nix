@@ -337,8 +337,6 @@
     settings.default = [ "kitty.desktop" ];
   };
 
-  environment.etc."xdg/kitty/kitty.conf".source = ./kitty.conf;
-
   environment.sessionVariables = {
     DO_NOT_TRACK = "1";
     GH_TELEMETRY = "false";
@@ -366,7 +364,6 @@
     curl
     gh
     git
-    kitty
     p7zip
     unzip
     wget

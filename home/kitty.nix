@@ -6,12 +6,13 @@
 
     font = {
       name = "JetBrainsMono Nerd Font";
-      size = 13;
+      size = 14;
     };
 
     settings = {
       background_blur = 24;
-      background_opacity = "0.96";
+      auto_reload_config = 0.1;
+      background_opacity = "0.94";
       confirm_os_window_close = 0;
       copy_on_select = "clipboard";
       cursor_blink_interval = "0.5";
@@ -39,7 +40,7 @@
       visual_bell_duration = "0.0";
       wheel_scroll_multiplier = "5.0";
       window_margin_width = 0;
-      window_padding_width = 12;
+      window_padding_width = 14;
     };
 
     keybindings = {
