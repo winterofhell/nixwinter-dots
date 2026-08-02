@@ -137,6 +137,7 @@
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
+    networkmanager.wifi.powersave = false;
     modemmanager.enable = false;
     firewall.enable = true;
   };
@@ -254,7 +255,8 @@
       general = {
         renice = 10;
         desiredgov = "performance";
-        softrealtime = "auto";
+        softrealtime = "off";
+        igpu_power_threshold = -1;
         inhibit_screensaver = 1;
         ioprio = 0;
       };
