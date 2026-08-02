@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./storage.nix
+    ./maintenance.nix
   ];
 
   nixpkgs.overlays = [
@@ -30,16 +31,11 @@
       ];
     };
 
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-    };
   };
 
   boot.loader.systemd-boot = {
     enable = true;
-    configurationLimit = 10;
+    configurationLimit = 3;
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 3;

@@ -11,6 +11,7 @@ in
 {
   imports = [
     ./home/apps.nix
+    ./home/flatpak.nix
     ./home/fish.nix
     ./home/fastfetch.nix
     ./home/kitty.nix

@@ -68,6 +68,7 @@ in
   home.packages = with pkgs; [
     zen
     vesktop
+    telegram-desktop
     fd
     jq
     lsof
