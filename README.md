@@ -1,6 +1,6 @@
 # nixwinter-dots
 
-NixOS unstable configuration for Ryzen 7 9850X3D, Radeon RX 9070 XT, KDE Plasma, Home Manager, Fish, Kitty and gaming.
+NixOS unstable conf
 
 ## Rebuild
 

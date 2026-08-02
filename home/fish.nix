@@ -57,6 +57,9 @@
         gsta = "git stash apply";
         gsw = "git switch";
         ipinfo = "ip -brief address";
+        l = "eza --icons=auto --group-directories-first";
+        la = "eza -a --icons=auto --group-directories-first";
+        ls = "eza --icons=auto --group-directories-first";
         journal = "journalctl -b -p warning --no-pager";
         kernel = "uname -a";
         ll = "eza -lah --icons=auto --group-directories-first --git";
@@ -73,6 +76,7 @@
         ports = "ss -tulpn";
         services = "systemctl --type=service --state=running";
         temps = "sensors";
+        tree = "eza --tree --level=3 --icons=auto --group-directories-first";
         userlog = "journalctl --user -b -p warning --no-pager";
         wifi = "nmtui";
         wifi-list = "nmcli device wifi list";
@@ -80,6 +84,7 @@
       };
 
       functions = {
+        update = builtins.readFile ./update.fish;
         archive = ''
           if test (count $argv) -lt 2
             echo "Использование: archive output.tar.zst <файлы/папки>"

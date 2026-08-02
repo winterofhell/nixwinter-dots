@@ -6,10 +6,13 @@
 
     font = {
       name = "JetBrainsMono Nerd Font";
-      size = 14;
+      size = 15;
     };
 
     settings = {
+      bold_font = "auto";
+      italic_font = "auto";
+      bold_italic_font = "auto";
       background_blur = 24;
       auto_reload_config = 0.1;
       background_opacity = "0.94";

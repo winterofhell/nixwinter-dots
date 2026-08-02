@@ -15,6 +15,7 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
+      warn-dirty = false;
       max-jobs = "auto";
       cores = 0;
       builders-use-substitutes = true;
@@ -369,6 +370,7 @@
     gh
     git
     kde-rounded-corners
+    plasma-panel-colorizer
     p7zip
     unzip
     wget

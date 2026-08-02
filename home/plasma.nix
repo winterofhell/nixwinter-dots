@@ -40,6 +40,9 @@
 
     shortcuts = {
       kwin.Overview = [ ];
+      kwin."Window Close" = [ "Meta+Q" "Alt+F4" ];
+      kwin."Kill Window" = [ "Meta+Ctrl+Q" "Meta+Ctrl+Esc" ];
+      plasmashell."manage activities" = [ ];
       ksmserver."Lock Session" = [
         "Meta+L"
         "Screensaver"
@@ -52,7 +55,7 @@
     };
 
     configFile = {
-      plasmarc.Theme.name = "breeze-dark";
+      plasmarc.Theme.name = "default";
       baloofilerc."Basic Settings"."Indexing-Enabled" = false;
 
       dolphinrc = {
