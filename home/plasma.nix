@@ -6,7 +6,6 @@
     overrideConfig = false;
 
     workspace = {
-      clickItemTo = "open";
       enableMiddleClickPaste = false;
       tooltipDelay = 400;
       iconTheme = "Papirus-Dark";
@@ -20,39 +19,6 @@
       };
     };
 
-    fonts = {
-      general = {
-        family = "JetBrains Mono";
-        pointSize = 11;
-        weight = 400;
-      };
-      fixedWidth = {
-        family = "JetBrains Mono";
-        pointSize = 11;
-        weight = 400;
-        fixedPitch = true;
-      };
-      small = {
-        family = "JetBrains Mono";
-        pointSize = 9;
-        weight = 400;
-      };
-      toolbar = {
-        family = "JetBrains Mono";
-        pointSize = 10;
-        weight = 400;
-      };
-      menu = {
-        family = "JetBrains Mono";
-        pointSize = 10;
-        weight = 400;
-      };
-      windowTitle = {
-        family = "JetBrains Mono";
-        pointSize = 10;
-        weight = 500;
-      };
-    };
 
     hotkeys.commands = {
       launch-browser = {

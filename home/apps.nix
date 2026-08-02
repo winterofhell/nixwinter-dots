@@ -67,6 +67,7 @@ in
 {
   home.packages = with pkgs; [
     zen
+    vesktop
     fd
     jq
     lsof
@@ -99,7 +100,7 @@ in
 
   xdg.mimeApps.defaultApplications = {
     "application/json" = [ "zen-browser.desktop" ];
-    "application/pdf" = [ "org.kde.okular.desktop" ];
+    "application/pdf" = [ "zen-browser.desktop" ];
     "application/vnd.rar" = [ "org.kde.ark.desktop" ];
     "application/x-7z-compressed" = [ "org.kde.ark.desktop" ];
     "application/x-bzip2" = [ "org.kde.ark.desktop" ];

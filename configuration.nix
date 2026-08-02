@@ -161,6 +161,7 @@
 
   services.xserver = {
     enable = true;
+    excludePackages = [ pkgs.xterm ];
     videoDrivers = [ "amdgpu" ];
     xkb = {
       layout = "us,ru";
@@ -185,6 +186,7 @@
     konsole
     kwin-x11
     elisa
+    okular
     kate
     ktexteditor
     khelpcenter
