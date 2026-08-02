@@ -366,6 +366,7 @@
     curl
     gh
     git
+    kde-rounded-corners
     p7zip
     unzip
     wget
