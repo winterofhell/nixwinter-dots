@@ -196,6 +196,7 @@
     union
     qrca
     discover
+    ffmpegthumbs
   ];
 
   programs.kde-pim.enable = false;
@@ -328,12 +329,6 @@
     ];
   };
 
-  fonts.packages = with pkgs; [
-    liberation_ttf
-    noto-fonts
-    noto-fonts-color-emoji
-  ];
-
   xdg.terminal-exec = {
     enable = true;
     settings.default = [ "kitty.desktop" ];
@@ -346,7 +341,6 @@
 
   environment.systemPackages = with pkgs; [
     # diagnostics and monitoring
-    btop
     lm_sensors
     pciutils
     usbutils
@@ -364,15 +358,12 @@
     # general
     (callPackage ./mini-eq.nix { })
     curl
-    gh
-    git
     kde-rounded-corners
     plasma-panel-colorizer
     p7zip
     unzip
     wget
     xfsprogs
-    vscode
   ];
 
   system.stateVersion = "26.05";

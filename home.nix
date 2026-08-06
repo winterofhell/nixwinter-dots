@@ -11,6 +11,7 @@ in
 {
   imports = [
     ./home/apps.nix
+    ./home/development.nix
     ./home/flatpak.nix
     ./home/fish.nix
     ./home/fastfetch.nix
@@ -56,10 +57,8 @@ in
     accent = "mauve";
     cursors.enable = true;
     gtk.icon.enable = true;
-    vscode.profiles.default = {
-      enable = true;
-      icons.enable = true;
-    };
+    vscode.profiles.default.enable = false;
+    cursor.profiles.default.enable = false;
   };
 
   gtk = {
@@ -94,4 +93,5 @@ in
   };
 
   programs.home-manager.enable = true;
+  manual.manpages.enable = false;
 }

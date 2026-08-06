@@ -69,10 +69,10 @@ in
     zen
     vesktop
     telegram-desktop
+    obsidian
     fd
     jq
     lsof
-    nh
     nix-output-monitor
     nvd
     ripgrep
@@ -141,6 +141,11 @@ in
     vscode = {
       enable = true;
       package = pkgs.vscode;
+    };
+    
+    cursor = {
+      enable = true;
+      package = pkgs.code-cursor;
     };
   };
 }
