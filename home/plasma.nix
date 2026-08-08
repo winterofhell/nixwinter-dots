@@ -63,6 +63,7 @@
         General = {
           GlobalViewProps = false;
           ShowFullPath = true;
+          ShowHiddenFiles = true;
           ShowStatusBar = "FullWidth";
         };
         "KFileDialog Settings" = {
@@ -84,7 +85,7 @@
           "Breadcrumb Navigation" = true;
           "Show Inline Previews" = true;
           "Show Preview" = true;
-          "Show hidden files" = false;
+          "Show hidden files" = true;
           "Sort directories first" = true;
           "View Style" = "Simple";
         };

@@ -78,6 +78,37 @@ in
     ripgrep
   ];
 
+  home.file."Desktop/Vesktop.desktop" = {
+    text = ''
+      [Desktop Entry]
+      Type=Application
+      Name=Vesktop
+      Comment=Vesktop
+      Exec=${pkgs.vesktop}/bin/vesktop %U
+      Icon=vesktop
+      Terminal=false
+      Categories=Network;InstantMessaging;
+    '';
+    executable = true;
+    force = true;
+  };
+
+  home.file."Desktop/Steam.desktop" = {
+    text = ''
+      [Desktop Entry]
+      Type=Application
+      Name=Steam
+      Comment=Steam
+      Exec=steam %U
+      Icon=steam
+      Terminal=false
+      Categories=Game;
+      MimeType=x-scheme-handler/steam;
+    '';
+    executable = true;
+    force = true;
+  };
+
   xdg.desktopEntries.zen-browser = {
     name = "Zen Browser";
     genericName = "Web Browser";
