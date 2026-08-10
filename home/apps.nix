@@ -67,6 +67,7 @@ in
 {
   home.packages = with pkgs; [
     zen
+    pear-desktop
     vesktop
     telegram-desktop
     obsidian

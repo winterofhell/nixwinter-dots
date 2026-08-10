@@ -303,16 +303,6 @@
   '';
 
   services.fwupd.enable = true;
-  programs.firefox = {
-    enable = true;
-    policies = {
-      DisableFirefoxStudies = true;
-      DisablePocket = true;
-      DisableTelemetry = true;
-      DontCheckDefaultBrowser = true;
-    };
-    nativeMessagingHosts.packages = lib.mkForce [ ];
-  };
   programs.chromium.enablePlasmaBrowserIntegration = lib.mkForce false;
 
   users.users.nixwinter = {
