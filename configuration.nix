@@ -21,6 +21,8 @@
       max-jobs = "auto";
       cores = 0;
       builders-use-substitutes = true;
+      http-connections = 50;
+      max-substitution-jobs = 32;
       trusted-users = [ "root" "@wheel" ];
 
       extra-substituters = [
