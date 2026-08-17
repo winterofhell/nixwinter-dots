@@ -9,6 +9,7 @@
 
   nixpkgs.overlays = [
     inputs.nix-cachyos-kernel.overlays.pinned
+    (import ./nanoemoji-fix.nix)
   ];
 
   nixpkgs.config.allowUnfree = true;
