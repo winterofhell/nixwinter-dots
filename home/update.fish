@@ -9,7 +9,7 @@ or begin
   return 1
 end
 
-sudo nix flake update --refresh --flake "$flake"
+nix flake update --refresh --flake "$flake"
 or begin
   sudo cp "$lock_backup" "$flake/flake.lock"
   rm -f "$lock_backup"
