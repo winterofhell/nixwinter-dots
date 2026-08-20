@@ -28,9 +28,11 @@
 
       extra-substituters = [
         "https://attic.xuyh0120.win/lantian"
+      "https://ezkea.cachix.org"
       ];
       extra-trusted-public-keys = [
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       ];
     };
 
@@ -148,7 +150,9 @@
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocales = [ "ru_RU.UTF-8/UTF-8" ];
   i18n.extraLocaleSettings = {
+    LC_CTYPE = "ru_RU.UTF-8";
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
     LC_MEASUREMENT = "de_DE.UTF-8";
@@ -228,6 +232,16 @@
   services.blueman.enable = false;
 
   services.lact.enable = true;
+
+  programs.anime-game-launcher.enable = true;
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-pipewire-audio-capture
+      obs-vaapi
+    ];
+  };
 
   programs.steam = {
     enable = true;
@@ -328,6 +342,7 @@
   };
 
   environment.sessionVariables = {
+    HOST_LC_ALL = "ru_RU.UTF-8";
     DO_NOT_TRACK = "1";
     GH_TELEMETRY = "false";
   };

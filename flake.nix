@@ -15,6 +15,11 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,6 +59,7 @@
         modules = [
           ./configuration.nix
           ./desktop-polish.nix
+          inputs.aagl.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
