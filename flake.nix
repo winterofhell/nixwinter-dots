@@ -1,5 +1,5 @@
 {
-  description = "NixOS gaming workstation";
+  description = "nixos workstation";
 
   nixConfig = {
     extra-substituters = [
