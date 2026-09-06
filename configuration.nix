@@ -313,11 +313,11 @@
     DefaultLimitNOFILE = 1048576;
   };
 
-  services.journald.extraConfig = ''
-    SystemMaxUse=100M
-    RuntimeMaxUse=50M
-    MaxRetentionSec=7day
-  '';
+  services.journald.settings.Journal = {
+    SystemMaxUse = "100M";
+    RuntimeMaxUse = "50M";
+    MaxRetentionSec = "7day";
+  };
 
   services.fwupd.enable = true;
   programs.chromium.enablePlasmaBrowserIntegration = lib.mkForce false;
