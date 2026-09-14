@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./storage.nix
     ./maintenance.nix
+    ./gaming-tools.nix
   ];
 
   nixpkgs.overlays = [

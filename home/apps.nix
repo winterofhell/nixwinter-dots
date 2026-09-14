@@ -7,7 +7,15 @@
 let
   system = pkgs.stdenv.hostPlatform.system;
 
-  zen = inputs.zen-browser.packages.${system}.default.override {
+  zenUnwrapped = inputs.zen-browser.packages.${system}.zen-browser-unwrapped.overrideAttrs (old: {
+    passthru = (old.passthru or { }) // { withFFmpeg = true; };
+  });
+
+  zen = (pkgs.wrapFirefox.override {
+    ffmpeg_8 = pkgs.ffmpeg_8;
+    ffmpeg_9 = pkgs.ffmpeg_8;
+  }) zenUnwrapped {
+    pname = "zen-browser";
     extraPolicies = {
       DisableAppUpdate = true;
       DisableFirefoxStudies = true;
