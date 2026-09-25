@@ -183,9 +183,5 @@ in
       package = pkgs.vscode;
     };
     
-    cursor = {
-      enable = true;
-      package = pkgs.code-cursor;
-    };
   };
 }

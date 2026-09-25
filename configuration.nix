@@ -63,6 +63,11 @@
     "tcp_bbr"
   ];
 
+  boot.extraModprobeConfig = ''
+    options iwlwifi power_save=0
+    options iwlmvm power_scheme=1
+  '';
+
   boot.kernelParams = [
     "amd_pstate=active"
     "transparent_hugepage=madvise"
@@ -353,6 +358,7 @@
     lm_sensors
     pciutils
     usbutils
+    iw
 
     # graphics/vulkan diagnostics
     libva-utils
