@@ -371,6 +371,7 @@
     vkbasalt
 
     # general
+    appimage-run
     (callPackage ./mini-eq.nix { })
     curl
     kde-rounded-corners

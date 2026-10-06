@@ -181,6 +181,9 @@ in
     vscode = {
       enable = true;
       package = pkgs.vscode;
+      profiles.default.userSettings = {
+        "security.workspace.trust.enabled" = false;
+      };
     };
     
   };
