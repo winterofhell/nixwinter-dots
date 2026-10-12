@@ -30,10 +30,12 @@
       extra-substituters = [
         "https://attic.xuyh0120.win/lantian"
       "https://ezkea.cachix.org"
+        "https://catppuccin.cachix.org"
       ];
       extra-trusted-public-keys = [
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+        "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
       ];
     };
 
@@ -326,6 +328,7 @@
   };
 
   services.fwupd.enable = true;
+  services.flatpak.enable = true;
   programs.chromium.enablePlasmaBrowserIntegration = lib.mkForce false;
 
   users.users.nixwinter = {
@@ -380,6 +383,16 @@
     unzip
     wget
     xfsprogs
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
+    openssl
+    curl
+    sqlite
+    xz
   ];
 
   system.stateVersion = "26.05";
