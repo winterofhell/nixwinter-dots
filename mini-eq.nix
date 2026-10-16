@@ -2,6 +2,7 @@
   lib,
   stdenv,
   fetchPypi,
+  fetchurl,
   python3Packages,
   meson,
   ninja,
@@ -19,12 +20,12 @@
 let
   pipewireGobject = stdenv.mkDerivation rec {
     pname = "pipewire-gobject";
-    version = "0.3.9";
+    version = "0.3.10";
 
-    src = fetchPypi {
-      pname = "pipewire_gobject";
-      inherit version;
-      hash = "sha256-8b6b1Kgo+09MaXdYfAlI/eRhN7RcQUxFeJTMM9ouzyw=";
+    src = fetchurl {
+      url = "https://github.com/bhack/pipewire-gobject/releases/download/${version}/pipewire_gobject-${version}.tar.gz";
+      
+      hash = "sha256-CqhN4s+ykcVw3uznR1YUtbDB00b/JG8G2nI8EIQPlWA=";
     };
 
     nativeBuildInputs = [
@@ -53,19 +54,19 @@ in
 
 python3Packages.buildPythonApplication rec {
   pname = "mini-eq";
-  version = "0.8.7";
+  version = "0.8.9";
   pyproject = true;
 
   src = fetchPypi {
     pname = "mini_eq";
     inherit version;
-    hash = "sha256-Ouwt+Y6aHljNvFGmOOmqBsuBIhqTlKDzF+1OIh4cZOg=";
+    hash = "sha256-tsbfyq5FAWGCQIRjdjSZTXRGghYkVgwFSB57DWXjRoU=";
   };
 
   postPatch = ''
     substituteInPlace pyproject.toml \
       --replace-fail \
-        'dependencies = ["numpy>=1.26", "pipewire-gobject>=0.3.9,<0.4"]' \
+        'dependencies = ["numpy>=1.26", "pipewire-gobject>=0.3.10,<0.4"]' \
         'dependencies = ["numpy>=1.26"]'
   '';
 
