@@ -135,14 +135,7 @@
     };
   };
 
-  specialisation."cachyos-no-scx".configuration = {
-    services.scx-loader.enable = lib.mkForce false;
-  };
 
-  specialisation."stock-kernel".configuration = {
-    boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
-    services.scx-loader.enable = lib.mkForce false;
-  };
 
   networking = {
     hostName = "nixos";
