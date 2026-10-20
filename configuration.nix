@@ -178,6 +178,7 @@
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
+  gtk.iconCache.enable = false;
 
   environment.etc."xdg/baloofilerc".text = ''
     [Basic Settings]

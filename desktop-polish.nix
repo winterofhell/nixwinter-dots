@@ -60,7 +60,6 @@ in
     catppuccinSddm
     catppuccinPapirus
     pkgs.catppuccin-cursors.mochaMauve
-    pkgs.papirus-icon-theme
     pkgs.kdePackages.ark
     pkgs.unrar
   ];
