@@ -28,12 +28,10 @@
       trusted-users = [ "root" "@wheel" ];
 
       extra-substituters = [
-        "https://attic.xuyh0120.win/lantian"
         "https://ezkea.cachix.org"
         "https://catppuccin.cachix.org"
       ];
       extra-trusted-public-keys = [
-        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
         "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
         "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
       ];
@@ -353,6 +351,7 @@
   environment.sessionVariables = {
     HOST_LC_ALL = "ru_RU.UTF-8";
     DO_NOT_TRACK = "1";
+    MESA_SHADER_CACHE_MAX_SIZE = "12G";
     GH_TELEMETRY = "false";
   };
 
