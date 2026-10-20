@@ -205,6 +205,27 @@
         "type": "github"
       }
     },
+    "polaris": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790462300,
+        "narHash": "sha256-IqqfObFy27ieEjITDjlQSxaOgKEDh4PNsSrFZYhYUJQ=",
+        "owner": "papi-ux",
+        "repo": "polaris",
+        "rev": "e7bbad307d8dde2bcf0105aea6424252a61d01c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "papi-ux",
+        "ref": "v1.4.13",
+        "repo": "polaris",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "aagl": "aagl",
@@ -213,6 +234,7 @@
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_2",
         "plasma-manager": "plasma-manager",
+        "polaris": "polaris",
         "rust-overlay": "rust-overlay",
         "zen-browser": "zen-browser"
       }

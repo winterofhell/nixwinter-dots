@@ -59,4 +59,7 @@
     enable = true;
     users = [ "nixwinter" ];
   };
+
+  # Polaris also uses UDP 48002, which the upstream module does not open.
+  networking.firewall.allowedUDPPorts = [ 48002 ];
 }
