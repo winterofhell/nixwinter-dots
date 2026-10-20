@@ -28,12 +28,10 @@
       trusted-users = [ "root" "@wheel" ];
 
       extra-substituters = [
-        "https://attic.xuyh0120.win/lantian"
       "https://ezkea.cachix.org"
         "https://catppuccin.cachix.org"
       ];
       extra-trusted-public-keys = [
-        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
         "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
       ];
@@ -197,7 +195,6 @@
     plasma-browser-integration
     plasma-workspace-wallpapers
     konsole
-    kwin-x11
     elisa
     okular
     kate

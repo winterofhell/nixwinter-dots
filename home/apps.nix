@@ -8,6 +8,10 @@ let
   system = pkgs.stdenv.hostPlatform.system;
 
   zenUnwrapped = inputs.zen-browser.packages.${system}.zen-browser-unwrapped.overrideAttrs (old: {
+    src = if old.version == "1.23.3b" then pkgs.fetchurl {
+      url = "https://github.com/zen-browser/desktop/releases/download/1.23.3b/zen.linux-x86_64.tar.xz";
+      hash = "sha256-uyBF0+IWVNQP6EElAJLurf0sH8gx7vtQkiJ3PIvcoUk=";
+    } else old.src;
     passthru = (old.passthru or { }) // { withFFmpeg = true; };
   });
 

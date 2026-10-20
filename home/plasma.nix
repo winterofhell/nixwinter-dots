@@ -49,7 +49,9 @@
       ];
     };
 
+
     kwin = {
+      effects.blur.enable = false;
       edgeBarrier = 0;
       cornerBarrier = false;
     };
@@ -61,7 +63,7 @@
       dolphinrc = {
         DetailsMode.PreviewSize = 32;
         General = {
-          GlobalViewProps = false;
+          GlobalViewProps = true;
           ShowFullPath = true;
           ShowHiddenFiles = true;
           ShowStatusBar = "FullWidth";
@@ -92,7 +94,7 @@
       };
 
       kwinrc = {
-        "org.kde.kdecoration2".theme = "__aurorae__svg__CatppuccinMocha-Modern";
+        "org.kde.kdecoration2" = { library = "org.kde.breeze"; theme = "Breeze"; NoPlugin = false; };
         Windows = {
           BorderlessMaximizedWindows = false;
           ElectricBorderCooldown = 350;

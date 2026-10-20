@@ -15,7 +15,7 @@
       bold_italic_font = "auto";
       background_blur = 24;
       auto_reload_config = 0.1;
-      background_opacity = "0.94";
+      background_opacity = "0.90";
       confirm_os_window_close = 0;
       copy_on_select = "clipboard";
       cursor_blink_interval = "0.5";
