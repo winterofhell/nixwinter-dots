@@ -18,7 +18,7 @@
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true;
+      download-buffer-size = 524288000;
       warn-dirty = false;
       max-jobs = "auto";
       cores = 0;
@@ -28,15 +28,21 @@
       trusted-users = [ "root" "@wheel" ];
 
       extra-substituters = [
-      "https://ezkea.cachix.org"
+        "https://attic.xuyh0120.win/lantian"
+        "https://ezkea.cachix.org"
         "https://catppuccin.cachix.org"
       ];
       extra-trusted-public-keys = [
-      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+        "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
         "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
       ];
     };
 
+    optimise = {
+      automatic = true;
+      dates = [ "weekly" ];
+    };
   };
 
   boot.loader.systemd-boot = {
@@ -55,9 +61,7 @@
   boot.kernelPackages =
     pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
 
-  boot.supportedFilesystems = [ "xfs" ];
   boot.initrd.systemd.enable = true;
-  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [
     "ntsync"
     "tcp_bbr"
@@ -66,6 +70,7 @@
   boot.extraModprobeConfig = ''
     options iwlwifi power_save=0
     options iwlmvm power_scheme=1
+    options cfg80211 ieee80211_regdom=DE
   '';
 
   boot.kernelParams = [
@@ -90,27 +95,27 @@
     "vm.dirty_writeback_centisecs" = 1500;
     "vm.max_map_count" = 2147483642;
 
-    "kernel.nmi_watchdog" = 0;
     "kernel.sched_autogroup_enabled" = 1;
     "kernel.kptr_restrict" = 2;
 
-    "fs.file-max" = 2097152;
     "fs.inotify.max_user_watches" = 1048576;
     "fs.inotify.max_user_instances" = 8192;
 
     "net.core.default_qdisc" = "fq";
     "net.ipv4.tcp_congestion_control" = "bbr";
     "net.core.netdev_max_backlog" = 4096;
+    "net.ipv4.tcp_mtu_probing" = 1;
+    "net.ipv4.tcp_fastopen" = 3;
   };
 
   zramSwap = {
     enable = true;
     algorithm = "zstd";
-    memoryPercent = 25;
+    memoryPercent = 50;
     priority = 100;
   };
 
-  fileSystems."/".options = lib.mkAfter [ "noatime" "lazytime" ];
+  fileSystems."/".options = lib.mkAfter [ "noatime" "lazytime" "logbsize=256k" ];
   services.fstrim.enable = true;
 
   services.udev.extraRules = ''
@@ -122,8 +127,6 @@
   systemd.tmpfiles.rules = [
     "w /sys/kernel/mm/transparent_hugepage/defrag - - - - defer+madvise"
   ];
-
-  services.irqbalance.enable = false;
 
   services.scx-loader = {
     enable = true;
@@ -216,6 +219,7 @@
   services.printing.enable = false;
 
   hardware.enableRedistributableFirmware = true;
+  hardware.wirelessRegulatoryDatabase = true;
   hardware.cpu.amd.updateMicrocode = true;
 
   hardware.amdgpu = {
@@ -250,6 +254,7 @@
   programs.steam = {
     enable = true;
     protontricks.enable = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
 
     extraPackages = with pkgs; [
       gamemode
@@ -324,7 +329,6 @@
   };
 
   services.fwupd.enable = true;
-  services.flatpak.enable = true;
   programs.chromium.enablePlasmaBrowserIntegration = lib.mkForce false;
 
   users.users.nixwinter = {

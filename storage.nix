@@ -7,9 +7,7 @@
     options = [
       "noatime"
       "lazytime"
-      "inode64"
-      "logbufs=8"
-      "logbsize=32k"
+      "logbsize=256k"
       "x-gvfs-show"
       "x-gvfs-name=Games"
     ];
