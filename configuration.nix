@@ -205,7 +205,6 @@
     krdp
     plasma-keyboard
     qtvirtualkeyboard
-    union
     qrca
     discover
     ffmpegthumbs
@@ -374,7 +373,6 @@
     appimage-run
     (callPackage ./mini-eq.nix { })
     curl
-    kde-rounded-corners
     plasma-panel-colorizer
     p7zip
     unzip

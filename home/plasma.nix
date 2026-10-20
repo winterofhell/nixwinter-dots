@@ -51,7 +51,8 @@
 
 
     kwin = {
-      effects.blur.enable = false;
+      effects.blur.enable = true;
+      effects.blur.strength = 14;
       edgeBarrier = 0;
       cornerBarrier = false;
     };
@@ -94,7 +95,7 @@
       };
 
       kwinrc = {
-        "org.kde.kdecoration2" = { library = "org.kde.breeze"; theme = "Breeze"; NoPlugin = false; };
+        "org.kde.kdecoration2" = { library = "org.kde.kwin.aurorae.v2"; theme = "__aurorae__svg__CatppuccinMocha-Modern"; BorderSizeAuto = false; NoPlugin = false; };
         Windows = {
           BorderlessMaximizedWindows = false;
           ElectricBorderCooldown = 350;
