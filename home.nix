@@ -17,6 +17,7 @@ in
     ./home/fastfetch.nix
     ./home/kitty.nix
     ./home/plasma.nix
+    ./home/polaris.nix
   ];
 
   home = {

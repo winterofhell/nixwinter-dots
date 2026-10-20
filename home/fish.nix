@@ -86,6 +86,34 @@
 
       functions = {
         update = builtins.readFile ./update.fish;
+        polaris-hash = ''
+          set -l flake /etc/nixos
+          set -l got (sudo nix build --no-link "$flake#nixosConfigurations.nixos.pkgs.polaris-stream.src" 2>&1 | string match -rg 'got:\s+(sha256-\S+)')
+          if test -z "$got"
+            echo "Хеш исходников Polaris уже верный"
+            return 0
+          end
+          sudo sed -i "s|hash = \"sha256-[^\"]*\"; # polaris-src|hash = \"$got\"; # polaris-src|" $flake/polaris.nix
+          echo "Хеш исходников Polaris: $got"
+        '';
+        polaris-update = ''
+          set -l flake /etc/nixos
+          set -l tag $argv[1]
+          if test -z "$tag"
+            set tag (git ls-remote --tags --refs https://github.com/papi-ux/polaris 'v*' | string replace -r '.*refs/tags/' "" | string match -v '*-*' | sort -V | tail -1)
+          end
+          set -l cur (string match -rg 'tag = "(v[^"]+)"' < $flake/polaris.nix)
+          if test "$tag" = "$cur"
+            echo "Polaris уже последней стабильной версии: $cur"
+            return 0
+          end
+          echo "Polaris: $cur -> $tag"
+          sudo sed -i "s|github:papi-ux/polaris/v[^\"]*|github:papi-ux/polaris/$tag|" $flake/flake.nix
+          sudo sed -i "s|tag = \"v[^\"]*\";|tag = \"$tag\";|; s|hash = \"sha256-[^\"]*\"; # polaris-src|hash = \"sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=\"; # polaris-src|" $flake/polaris.nix
+          sudo nix flake update polaris --flake $flake
+          and polaris-hash
+          and nh os switch $flake
+        '';
         archive = ''
           if test (count $argv) -lt 2
             echo "Использование: archive output.tar.zst <файлы/папки>"

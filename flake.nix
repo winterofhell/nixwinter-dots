@@ -38,6 +38,12 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Pinned to a stable release; bump with `polaris-update`.
+    polaris = {
+      url = "github:papi-ux/polaris/v1.4.13";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -57,6 +63,8 @@
         modules = [
           ./configuration.nix
           ./desktop-polish.nix
+          ./polaris.nix
+          inputs.polaris.nixosModules.polaris
           inputs.aagl.nixosModules.default
           home-manager.nixosModules.home-manager
           {
@@ -71,6 +79,7 @@
               sharedModules = [
                 plasma-manager.homeModules.plasma-manager
                 catppuccin.homeModules.catppuccin
+                inputs.polaris.homeModules.polaris
               ];
               users.nixwinter = import ./home.nix;
             };
