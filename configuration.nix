@@ -59,7 +59,6 @@
   boot.kernelPackages =
     pkgs.linuxPackagesFor (pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4.kernel.overrideAttrs (_: { localBuild = "1"; }));
 
-  boot.initrd.systemd.enable = true;
   boot.kernelModules = [
     "ntsync"
     "tcp_bbr"
