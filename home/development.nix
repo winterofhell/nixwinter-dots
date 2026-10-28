@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     dotnet-sdk_8
-    nodejs
+    nodejs_latest
   ];
 
   home.sessionVariables = {
