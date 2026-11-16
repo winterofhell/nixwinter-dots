@@ -31,6 +31,7 @@
       polaris-stream =
         (prev.polaris-stream.override {
           cudaSupport = false;
+          pcre = final.pcre2; # pcre is removed from nixpkgs...
           polarisSrc = final.fetchgit {
             url = "https://github.com/papi-ux/polaris";
             tag = "v1.4.13";

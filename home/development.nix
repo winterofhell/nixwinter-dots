@@ -4,6 +4,17 @@
   home.packages = with pkgs; [
     dotnet-sdk_8
     nodejs_latest
+    typescript-language-server
+    firefox
+    chromium
+    cargo
+    rustc
+    direnv
+    nix-direnv
+
+    # tools and game assets
+    ast-grep shellcheck difftastic hyperfine
+    ffmpeg sox imagemagick oxipng pngquant
   ];
 
   home.sessionVariables = {

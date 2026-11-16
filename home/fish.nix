@@ -41,6 +41,7 @@
         failed = "systemctl --failed";
         fm = "dolphin .";
         ff = "fastfetch";
+        f = "fastfetch";
         g = "git";
         ga = "git add";
         gaa = "git add --all";

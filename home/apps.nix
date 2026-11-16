@@ -122,6 +122,23 @@ in
     force = true;
   };
 
+  home.file."Desktop/code.desktop" = {
+    text = ''
+      [Desktop Entry]
+      Type=Application
+      Name=Visual Studio Code
+      GenericName=Text Editor
+      Exec=${pkgs.vscode}/bin/code %F
+      Icon=vscode
+      Terminal=false
+      StartupNotify=true
+      StartupWMClass=Code
+      Categories=Utility;TextEditor;Development;IDE;
+    '';
+    executable = true;
+    force = true;
+  };
+
   xdg.desktopEntries.zen-browser = {
     name = "Zen Browser";
     genericName = "Web Browser";
