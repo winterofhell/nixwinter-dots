@@ -15,7 +15,7 @@
     { "type": "title", "color": { "user": "#f5c2e7", "at": "#6c7086", "host": "#cba6f7" } },
     "break",
     { "type": "os", "key": "\uf313  os", "keyColor": "#89b4fa", "format": "{name} {version-id}" },
-    { "type": "kernel", "key": "\uf17c  kernel", "keyColor": "#74c7ec", "format": "{release}" },
+    { "type": "kernel", "key": "\uf17c  krn", "keyColor": "#74c7ec", "format": "{release}" },
     { "type": "de", "key": "\uf108  de", "keyColor": "#94e2d5" },
     { "type": "cpu", "key": "\uf4bc  cpu", "keyColor": "#a6e3a1", "format": "{name}" },
     { "type": "gpu", "key": "\udb82\udcae  gpu", "keyColor": "#fab387", "format": "{name}" },
