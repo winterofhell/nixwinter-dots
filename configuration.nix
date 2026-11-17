@@ -16,6 +16,7 @@
   nixpkgs.config.allowUnfree = true;
 
   nix = {
+    extraOptions = "!include /etc/nix/github-token.conf";
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       download-buffer-size = 524288000;
@@ -28,10 +29,12 @@
       trusted-users = [ "root" "@wheel" ];
 
       extra-substituters = [
+        "https://cache.lantian.pub/lantian"
         "https://ezkea.cachix.org"
         "https://catppuccin.cachix.org"
       ];
       extra-trusted-public-keys = [
+        "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
         "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
         "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
       ];
@@ -57,7 +60,7 @@
   ];
 
   boot.kernelPackages =
-    pkgs.linuxPackagesFor (pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4.kernel.overrideAttrs (_: { localBuild = "1"; }));
+    pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
 
   boot.kernelModules = [
     "ntsync"
